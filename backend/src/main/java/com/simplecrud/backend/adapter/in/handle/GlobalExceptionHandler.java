@@ -16,5 +16,5 @@ public class GlobalExceptionHandler {
         }
         return new ResponseEntity<>("Erro de integridade de dados.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+    
 }

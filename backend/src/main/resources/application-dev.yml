@@ -1,3 +1,5 @@
+server:
+    port: 8081
 spring:
     config: 
         activate:
@@ -5,7 +7,7 @@ spring:
     application:
         name: backend
     datasource:
-        url: jdbc:mysql://localhost:3306/simplecrud
+        url: jdbc:mysql://localhost:3307/simplecrud
         username: simplecruduser
         password: simplecrudpass
         driver-class-name: com.mysql.cj.jdbc.Driver
