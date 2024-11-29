@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  simplescrud_database_mysql:
+  simplecrud_database_mysql:
     image: mysql:8.0.31
-    container_name: simplescrud_database_mysql
+    container_name: simplecrud_database_mysql
     environment:
-      MYSQL_ROOT_PASSWORD: simplescrudpassroot
-      MYSQL_USER: simplescruduser
-      MYSQL_PASSWORD: simplescrudpass
+      MYSQL_ROOT_PASSWORD: simplecrudpassroot
+      MYSQL_USER: simplecruduser
+      MYSQL_PASSWORD: simplecrudpass
       MYSQL_DATABASE: simplecrud
     ports:
       - "3306:3306"
