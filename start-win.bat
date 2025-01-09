@@ -26,11 +26,11 @@ IF NOT EXIST "%BACKEND_APP_JAR%" (
     exit /b 1
 )
 
-REM Chama o script de build do backend
+REM Call script for building the backend
 echo Calling the backend build script...
 call "%BACKEND_DIR%\build.bat"
 
-REM Verifica se o arquivo JAR foi gerado
+REM VCerify if JAR was generated
 cd ..
 
 IF NOT EXIST "%BACKEND_APP_JAR%" (
@@ -38,7 +38,7 @@ IF NOT EXIST "%BACKEND_APP_JAR%" (
     exit /b 1
 )
 
-REM Inicia a aplicação
+REM Start application
 echo Starting Backend Application...
 java -jar "%BACKEND_APP_JAR%"
 IF ERRORLEVEL 1 (
