@@ -8,12 +8,12 @@ import com.simplecrud.backend.application.port.out.UserRepository;
 import com.simplecrud.backend.domain.model.UserModel;
 
 @Service
-public class UserRepositoryMongo implements UserRepository {
+public class UserRepositoryJpa implements UserRepository {
     
-    private final SpringMongoUserRepository springMongoUserRepository;
+    private final SpringJpaUserRepository springMongoUserRepository;
 
-    public UserRepositoryMongo(
-        SpringMongoUserRepository repositoryMongo
+    public UserRepositoryJpa(
+        SpringJpaUserRepository repositoryMongo
     ) {
         this.springMongoUserRepository = repositoryMongo;
     }
@@ -29,7 +29,7 @@ public class UserRepositoryMongo implements UserRepository {
     }
 
     @Override
-    public UserModel byId(String id) {
+    public UserModel byId(Long id) {
         Optional<UserModel> user = this.springMongoUserRepository.findById(id);
         System.out.println("User: " + user.get().getUsername());
         return user.get();

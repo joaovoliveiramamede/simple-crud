@@ -26,7 +26,6 @@ public class ClientMapper {
         client.setFirstName(request.getFirstName());
         client.setLastName(request.getLastName());
         client.setDocument(request.getDocument());
-        client.setIsCompany(request.getIsCompany());
         client.setEmail(request.getEmail());
         return client;
     }

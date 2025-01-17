@@ -3,7 +3,7 @@ package com.simplecrud.backend.application.service;
 import org.springframework.stereotype.Service;
 
 import com.simplecrud.backend.adapter.out.persistence.ClientRepositoryJpa;
-import com.simplecrud.backend.adapter.out.persistence.UserRepositoryMongo;
+import com.simplecrud.backend.adapter.out.persistence.UserRepositoryJpa;
 import com.simplecrud.backend.application.port.in.ClientUseCase;
 import com.simplecrud.backend.application.port.out.ClientRepository;
 import com.simplecrud.backend.application.port.out.UserRepository;
@@ -22,7 +22,7 @@ public class ClientService implements ClientUseCase {
 
     public ClientService(
         ClientRepositoryJpa repositoryJpa,
-        UserRepositoryMongo userRepositoryMongo
+        UserRepositoryJpa userRepositoryMongo
     ) {
         this.repository = repositoryJpa;
         this.userRepository = userRepositoryMongo;
@@ -33,7 +33,6 @@ public class ClientService implements ClientUseCase {
         try {
             UserModel user = userRepository.byUsername(request.getUsername());
             ClientModel client = ClientMapper.convertCreateRequestToEntity(request);
-            client.setUserId(user.getId());
             ClientModel response = this.repository.save(client);
             return ClientMapper.convertEntityToResponse(response);
         } catch (Exception exception) {

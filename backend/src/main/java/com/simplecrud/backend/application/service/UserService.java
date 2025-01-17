@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.simplecrud.backend.adapter.out.persistence.ClientRepositoryJpa;
-import com.simplecrud.backend.adapter.out.persistence.UserRepositoryMongo;
+import com.simplecrud.backend.adapter.out.persistence.UserRepositoryJpa;
 import com.simplecrud.backend.application.port.in.UserUseCase;
 import com.simplecrud.backend.application.port.out.UserRepository;
 import com.simplecrud.backend.domain.mapper.UserMapper;
@@ -19,7 +19,7 @@ public class UserService implements UserUseCase {
     private final PasswordEncoder passwordEncoder;
 
     public UserService(
-        UserRepositoryMongo repositoryMongo,
+        UserRepositoryJpa repositoryMongo,
         PasswordEncoder passwordEncoder,
         ClientRepositoryJpa clientRepositoryJpa
     ) {

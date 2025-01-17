@@ -17,8 +17,3 @@ spring:
                 dialect: org.hibernate.dialect.MySQLDialect
     jwt:
         secret: 30000L
-    data:
-        mongodb:
-            uri: mongodb://simplecrudroot:simplecrudpass@localhost:27017/simplecrudusers
-            database: simplecrudusers
-            authentication-database: admin
