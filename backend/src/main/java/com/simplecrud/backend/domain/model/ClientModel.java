@@ -11,14 +11,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "client")
 @Table(name = "client")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Data @Builder
 public class ClientModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,12 @@ public class ClientModel implements Serializable {
     private String firstName;
     private String lastName;
     @Column(unique = true)
-    private String document;
-    @Column(unique = true)
     private String email;
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
     private UserModel user;
+    @OneToOne
+    @JoinColumn(name = "address_id", unique = true)
+    private AddressModel address;
+    
 }

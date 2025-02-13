@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CreateUserRequest implements Serializable {
-    private String username;
+    private String email;
     private String password;
 }

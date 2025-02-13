@@ -16,4 +16,4 @@ spring:
             hibernate:
                 dialect: org.hibernate.dialect.MySQLDialect
     jwt:
-        secret: 30000L
+        secret: "SuperSecretKeyWithAtLeast32Characters"
