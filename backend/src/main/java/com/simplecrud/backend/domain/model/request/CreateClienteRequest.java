@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 public class CreateClienteRequest implements Serializable {
     private String firstName;
     private String lastName;
-    private String document;
-    private Boolean isCompany;
-    private String email;
-    private String username;
+    private CreateUserRequest user;
+    private CreateAddressRequest address;
 }

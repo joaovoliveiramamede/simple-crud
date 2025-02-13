@@ -1,15 +1,18 @@
 {
   "name": "simple-crud",
   "version": "1.0.0",
-  "description": "initilize simples crud",
-  "main": "index.js",
+  "description": "Simple Crud for clients",
+  "main": "init-mongo.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joaovoliveiramamede/simple-crud.git"
   },
   "author": "João Vitor Oliveira Mamede",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }

@@ -3,6 +3,7 @@ package com.simplecrud.backend.domain.mapper;
 import org.modelmapper.ModelMapper;
 
 import com.simplecrud.backend.domain.model.ClientModel;
+import com.simplecrud.backend.domain.model.UserModel;
 import com.simplecrud.backend.domain.model.request.CreateClienteRequest;
 import com.simplecrud.backend.domain.model.response.ClientResponse;
 
@@ -25,9 +26,15 @@ public class ClientMapper {
         ClientModel client = new ClientModel();
         client.setFirstName(request.getFirstName());
         client.setLastName(request.getLastName());
-        client.setDocument(request.getDocument());
-        client.setIsCompany(request.getIsCompany());
-        client.setEmail(request.getEmail());
         return client;
     }
+
+    public static ClientModel convertRequestToEntityWithUser(ClientModel client, UserModel userModel) {
+        ClientModel response = new ClientModel();
+        response.setFirstName(client.getFirstName());
+        response.setLastName(client.getLastName());
+        response.setUser(userModel);
+        return response;
+    }
+
 }

@@ -5,5 +5,5 @@ import com.simplecrud.backend.domain.model.UserModel;
 public interface UserRepository {
     UserModel save(UserModel entity);
     UserModel byUsername(String username);
-    UserModel byId(String id);
+    UserModel byId(Long id);
 }
