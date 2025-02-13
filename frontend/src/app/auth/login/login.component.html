@@ -1,0 +1,17 @@
+<form class="login" [formGroup]="form">
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" 
+            aria-describedby="E-mail for login" aria-label="email" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" 
+            aria-describedby="Password for login" aria-label="password" formControlName="password">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="rememberme" formControlName="rememberme">
+        <label class="form-check-label" for="rememberme">Remember-me</label>
+    </div>
+    <button type="submit"  (click)="onSubmit()" class="btn btn-secondary">Submit</button>
+</form>
