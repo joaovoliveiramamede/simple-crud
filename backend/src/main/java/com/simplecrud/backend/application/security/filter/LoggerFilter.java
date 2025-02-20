@@ -1,27 +1,30 @@
 package com.simplecrud.backend.application.security.filter;
 
-import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 
-public class TokenFilter implements Filter {
+import java.io.IOException;
+import java.util.Enumeration;
 
-    private static final String BEARER_PREFIX = "Bearer ";
+public class LoggerFilter implements Filter {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoggerFilter.class);
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if (request instanceof HttpServlet) {
-            HttpServletRequest httpRequest = (HttpServletRequest) request;
-            chain.doFilter(request,response);
-        }
-        chain.doFilter(request,response);
+        
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        
+        System.out.println(request);
+
+        chain.doFilter(httpRequest, response);
     }
-
-
 }

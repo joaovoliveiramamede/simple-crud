@@ -14,6 +14,5 @@ public class ClientResponse implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private UserResponse user;
-    private AddressResponse address;
+    private String email;
 }

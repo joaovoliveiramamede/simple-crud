@@ -1,3 +1,11 @@
 spring:
   profiles:
     active: dev, debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "prometheus" ]
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
