@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s  # Tempo entre as coletas de métricas do Spring Boot
+
+scrape_configs:
+  - job_name: 'spring-boot'
+    static_configs:
+      - targets: ['host.docker.internal:8080']  # Usando host.docker.internal para referenciar a máquina local a partir do Docker

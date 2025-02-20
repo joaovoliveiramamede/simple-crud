@@ -11,15 +11,11 @@ services:
       MYSQL_DATABASE: simplecrud
     ports:
       - "3306:3306"
-  
-  simplecrud_database_mongo:
-    image: mongo:latest
-    container_name: simplecrud_database_mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: simplecrudroot
-      MONGO_INITDB_ROOT_PASSWORD: simplecrudpass
-      MONGO_INITDB_DATABASE: simplecrudusers
-    volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
     ports:
-      - "27017:27017"
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
