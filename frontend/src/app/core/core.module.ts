@@ -4,13 +4,15 @@ import { NavbarPagesComponent } from './navbar-pages/navbar-pages.component';
 import { FooterPagesComponent } from './footer-pages/footer-pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarPagesComponent,
-    FooterPagesComponent
+    FooterPagesComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     NavbarPagesComponent,
-    FooterPagesComponent
+    FooterPagesComponent,
+    NavbarComponent
   ]
 })
 export class CoreModule { }
