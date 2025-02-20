@@ -8,6 +8,10 @@ import com.simplecrud.backend.application.service.UserService;
 import com.simplecrud.backend.domain.model.request.CreateUserRequest;
 import com.simplecrud.backend.domain.model.response.UserResponse;
 
+import java.util.Map;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,5 +44,12 @@ public class UserRestController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
     
+    @GetMapping("list")
+    public ResponseEntity<Map<String, Object>> list(Pageable pageable) {
+        Map<String, Object> response = this.useCase.list(pageable);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+    
+
 
 }

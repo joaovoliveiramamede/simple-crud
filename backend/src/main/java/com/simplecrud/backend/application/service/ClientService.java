@@ -63,6 +63,8 @@ public class ClientService implements ClientUseCase {
             client.setUser(savedUser);
             client.setAddress(savedAddress);           
             
+            client.setEmail(savedUser.getUsername());
+
             ClientModel savedClient = this.repository.save(client);           
             return ClientMapper.convertEntityToResponse(savedClient);
         
