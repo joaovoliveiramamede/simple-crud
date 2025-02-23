@@ -1,7 +1,9 @@
 package com.simplecrud.backend.application.service;
 
+import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,6 +72,12 @@ public class ClientService implements ClientUseCase {
         } catch (Exception exception) {
             throw new ClienteInternalErrorException("Erro to create client", exception);
         }
+    }
+
+    @Override
+    public Map<String, Object> list(Pageable pageable) throws ClienteInternalErrorException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'list'");
     }
 
     

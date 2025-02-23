@@ -1,5 +1,7 @@
 package com.simplecrud.backend.adapter.out.persistence;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.simplecrud.backend.application.port.out.ClientRepository;
@@ -19,6 +21,12 @@ public class ClientRepositoryJpa implements ClientRepository {
     @Override
     public ClientModel save(ClientModel entity) {
         return this.repository.save(entity);
+    }
+
+    @Override
+    public Optional<ClientModel> findById(Long id) {
+        ClientModel response = this.repository.getReferenceById(id);
+        return Optional.of(response);
     }
     
 }
