@@ -18,6 +18,9 @@ public class CreateClienteRequest implements Serializable {
     @Schema(description = "Last name of client", example = "Deer")
     @NotNull
     private String lastName;
+    @NotNull
+    @Schema(description = "Document of client", example = "666.666.666-66")
+    private String document;
     @Schema(description = "User associate into client", implementation = CreateUserRequest.class)
     @NotNull
     private CreateUserRequest user;

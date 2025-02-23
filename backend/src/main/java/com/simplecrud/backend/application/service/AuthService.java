@@ -6,9 +6,9 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.simplecrud.backend.adapter.factory.JwtFactory;
+import com.simplecrud.backend.application.helper.ResponseHelper;
 import com.simplecrud.backend.application.port.in.AuthUseCase;
 import com.simplecrud.backend.application.port.out.UserRepository;
-import com.simplecrud.backend.domain.mapper.UserMapper;
 import com.simplecrud.backend.domain.model.UserModel;
 import com.simplecrud.backend.domain.model.request.AuthRequest;
 import com.simplecrud.backend.domain.model.response.AuthResponse;
@@ -19,19 +19,22 @@ public class AuthService implements AuthUseCase {
 
     private UserRepository userRepository;
     private JwtFactory jwtFactory;
+    private final ResponseHelper responseHelper;
 
     public AuthService(
         UserRepository userRepository,
-        JwtFactory jwtFactory
+        JwtFactory jwtFactory,
+        ResponseHelper responseHelper
     ) {
         this.userRepository = userRepository;
         this.jwtFactory = jwtFactory;
+        this.responseHelper = responseHelper;
     }
 
     @Override
     public AuthResponse signIn(AuthRequest request) {
         UserModel userEntity = this.userRepository.byUsername(request.getUsername());
-        UserResponse findUser = UserMapper.convertEntityToResponse(userEntity);
+        UserResponse findUser = responseHelper.convertUserEntityToResponse(userEntity);
 
         if(findUser == null) {
             throw new IllegalAccessError("User Invalid");

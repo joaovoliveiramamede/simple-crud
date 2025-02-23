@@ -10,8 +10,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.simplecrud.backend.domain.model.AddressModel;
+import com.simplecrud.backend.domain.model.ClientModel;
 import com.simplecrud.backend.domain.model.UserModel;
 import com.simplecrud.backend.domain.model.request.CreateAddressRequest;
+import com.simplecrud.backend.domain.model.request.CreateClienteRequest;
+import com.simplecrud.backend.domain.model.request.CreateUserRequest;
 import com.simplecrud.backend.domain.model.response.AddressResponse;
 import com.simplecrud.backend.domain.model.response.ClientResponse;
 import com.simplecrud.backend.domain.model.response.UserResponse;
@@ -57,4 +60,19 @@ public class ResponseHelper {
         return response;
     }
 
+    public UserModel convertUserCreateRequestToEntity(CreateUserRequest request) {
+        return mapper.map(request, UserModel.class);
+    }
+
+    public UserResponse convertUserEntityToResponse(UserModel entity) {
+        return mapper.map(entity, UserResponse.class);
+    }
+
+    public ClientModel convertClientCreateRequestEntityToResponse(CreateClienteRequest request) {
+        return mapper.map(request, ClientModel.class);
+    }
+
+    public ClientResponse convertClientEntityToResponse(ClientModel entity) {
+        return mapper.map(entity, ClientResponse.class);
+    }
 }

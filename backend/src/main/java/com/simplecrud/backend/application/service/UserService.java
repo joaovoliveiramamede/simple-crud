@@ -14,7 +14,6 @@ import com.simplecrud.backend.adapter.out.persistence.UserRepositoryJpa;
 import com.simplecrud.backend.application.helper.ResponseHelper;
 import com.simplecrud.backend.application.port.in.UserUseCase;
 import com.simplecrud.backend.application.port.out.UserRepository;
-import com.simplecrud.backend.domain.mapper.UserMapper;
 import com.simplecrud.backend.domain.model.UserModel;
 import com.simplecrud.backend.domain.model.request.CreateUserRequest;
 import com.simplecrud.backend.domain.model.response.UserResponse;
@@ -39,16 +38,16 @@ public class UserService implements UserUseCase {
 
     @Override
     public UserResponse create(CreateUserRequest request) {
-        UserModel entity = UserMapper.convertRequestCreateToEntity(request);
+        UserModel entity = responseHelper.convertUserCreateRequestToEntity(request);
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
-        UserResponse response = UserMapper.convertEntityToResponse(this.repository.save(entity));
+        UserResponse response = responseHelper.convertUserEntityToResponse(this.repository.save(entity));
         return response;
     }
 
     @Override
     public UserResponse getByUsername(String username) {
         UserModel entity = this.repository.byUsername(username);
-        UserResponse response = UserMapper.convertEntityToResponse(entity);
+        UserResponse response = responseHelper.convertUserEntityToResponse(entity);
         return response;
     }
 

@@ -30,6 +30,8 @@ public class ClientModel implements Serializable {
     private String lastName;
     @Column(unique = true, nullable = false, length = 150)
     private String email;
+    @Column(nullable = false, unique = true, length = 20)
+    private String document;
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
     private UserModel user;

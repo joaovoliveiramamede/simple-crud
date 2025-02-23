@@ -14,7 +14,6 @@ import com.simplecrud.backend.application.port.out.AddressRepository;
 import com.simplecrud.backend.application.port.out.ClientRepository;
 import com.simplecrud.backend.application.port.out.UserRepository;
 import com.simplecrud.backend.domain.exception.ClienteInternalErrorException;
-import com.simplecrud.backend.domain.mapper.ClientMapper;
 import com.simplecrud.backend.domain.model.AddressModel;
 import com.simplecrud.backend.domain.model.ClientModel;
 import com.simplecrud.backend.domain.model.UserModel;
@@ -50,7 +49,7 @@ public class ClientService implements ClientUseCase {
     public ClientResponse create(CreateClienteRequest request) throws ClienteInternalErrorException {
         try {
 
-            ClientModel client = ClientMapper.convertCreateRequestToEntity(request);
+            ClientModel client = responseHelper.convertClientCreateRequestEntityToResponse(request);
             CreateUserRequest userRequest = request.getUser();
 
             UserModel user = new UserModel();
@@ -66,7 +65,7 @@ public class ClientService implements ClientUseCase {
             client.setEmail(savedUser.getUsername());
 
             ClientModel savedClient = this.repository.save(client);           
-            return ClientMapper.convertEntityToResponse(savedClient);
+            return responseHelper.convertClientEntityToResponse(savedClient);
         
         } catch (Exception exception) {
             throw new ClienteInternalErrorException("Erro to create client", exception);

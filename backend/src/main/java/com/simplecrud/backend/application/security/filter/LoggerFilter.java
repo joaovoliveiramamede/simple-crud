@@ -11,7 +11,6 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 public class LoggerFilter implements Filter {
 
