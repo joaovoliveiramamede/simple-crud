@@ -42,4 +42,7 @@ public class ClientModel implements Serializable {
     @ManyToOne
     @JoinColumn(name = "provider_id", nullable = true)
     private ProviderModel provider;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = true)
+    private ProductModel product;
 }

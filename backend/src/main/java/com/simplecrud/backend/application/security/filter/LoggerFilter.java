@@ -22,7 +22,7 @@ public class LoggerFilter implements Filter {
         
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         
-        System.out.println(request);
+        
 
         chain.doFilter(httpRequest, response);
     }
